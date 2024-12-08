@@ -13,6 +13,7 @@ const router = createRouter({
     },
     {
       path: "/jobs",
+      name: "jobs",
       component: JobsView,
     },
     {
