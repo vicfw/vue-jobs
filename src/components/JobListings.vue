@@ -1,15 +1,14 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
-import { ref } from "vue";
 import JobCard from "@/components/JobCard.vue";
-import jobsData from "@/jobs.json";
+import { jobsState } from "@/store";
+import { RouterLink } from "vue-router";
 
 const { limit = 3, showButton } = defineProps<{
-  limit: number;
-  showButton: boolean;
+  limit?: number;
+  showButton?: boolean;
 }>();
 
-const jobs = ref(jobsData);
+const { jobs } = jobsState;
 </script>
 
 <template>
@@ -19,7 +18,7 @@ const jobs = ref(jobsData);
         Browse Jobs
       </h2>
       <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div v-for="job in jobs.slice(0, limit || job.length)" :key="job.id">
+        <div v-for="job in jobs.slice(0, limit || jobs.length)" :key="job.id">
           <JobCard v-bind="job" />
         </div>
       </div>

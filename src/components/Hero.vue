@@ -2,7 +2,7 @@
 const {
   title = "Become a Dev",
   subtitle = "Find the Vue job that fits your skills and needs",
-} = defineProps<{ title: string; subtitle: string }>();
+} = defineProps<{ title?: string; subtitle?: string }>();
 </script>
 
 <template>

@@ -10,8 +10,10 @@ const isActiveLink = (routePath: string) => {
 const activeLinkCondition = (routePath: string) => {
   return isActiveLink(routePath)
     ? "bg-green-900"
-    : "hover:bg-gray-900 hover:text-white";
+    : "hover:bg-gray-800 hover:text-white";
 };
+
+const className = ["text-white", "px-3", "py-2", "rounded-md"];
 </script>
 
 <template>
@@ -32,35 +34,17 @@ const activeLinkCondition = (routePath: string) => {
             <div class="flex space-x-2">
               <RouterLink
                 to="/"
-                :class="[
-                  activeLinkCondition('/'),
-                  'text-white',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
+                :class="[activeLinkCondition('/'), ...className]"
                 >Home</RouterLink
               >
               <RouterLink
                 to="/jobs"
-                :class="[
-                  activeLinkCondition('/jobs'),
-                  'text-white',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
+                :class="[activeLinkCondition('/jobs'), ...className]"
                 >Jobs</RouterLink
               >
               <RouterLink
                 to="/jobs/add"
-                :class="[
-                  activeLinkCondition('/jobs/add'),
-                  'text-white',
-                  'px-3',
-                  'py-2',
-                  'rounded-md',
-                ]"
+                :class="[activeLinkCondition('/jobs/add'), ...className]"
                 >Add Job</RouterLink
               >
             </div>
