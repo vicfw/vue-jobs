@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import BackButton from "@/components/BackButton.vue";
 import { jobsState } from "@/store";
 import { onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
@@ -22,14 +23,7 @@ onMounted(() => {
 <template>
   <!-- Go Back -->
   <section>
-    <div class="container m-auto py-6 px-6">
-      <RouterLink
-        to="/jobs"
-        class="text-green-500 hover:text-green-600 flex items-center"
-      >
-        <i class="fas fa-arrow-left mr-2"></i> Back to Job Listings
-      </RouterLink>
-    </div>
+    <BackButton />
     <div v-if="!job"></div>
     <div v-else>
       <section class="bg-green-50 h-[calc(100vh-160px)]">
